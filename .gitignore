@@ -1,4 +1,7 @@
+
 # Xcode
+
+APIConfig.json
 
 ## Build generated
 build/
@@ -59,7 +62,6 @@ playground.xcworkspace
 # Carthage/Checkouts
 
 Carthage/Build
-
 # Accio dependency management
 Dependencies/
 .accio/
