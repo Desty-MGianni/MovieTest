@@ -15,7 +15,6 @@ struct APIObject: Decodable {
     var results: [Title] = []
 }
 
-
 // Model permettant de capturer
 // les éléments qui nous intéressent
 // venant de l'API TheMovieDb
@@ -39,4 +38,18 @@ struct Title: Decodable, Identifiable {
     var name: String?
     var overview: String?
     var posterPath: String?
+
+    // Pour faire des tests
+    static var previewTitles = [
+        Title(
+            id: 1, title: "BeetleJuice", name: "BeetleJuice", overview: "A movie about BeetleJuice",
+            posterPath: Constants.testTitleURL),
+        Title(
+            id: 2, title: "Pulp Fiction", name: "Pulp Fiction", overview: "A novie about gangsters",
+            posterPath: Constants.testTitleURL2),
+        Title(
+            id: 3, title: "The Dark Knight", name: "The Dark Knight",
+            overview: "A moive about Batman", posterPath: Constants.testTitleURL3),
+    ]
+
 }

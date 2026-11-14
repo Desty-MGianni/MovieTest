@@ -2,6 +2,7 @@
 # Xcode
 
 APIConfig.json
+TmdbLogin.json
 
 ## Build generated
 build/
@@ -18,6 +19,7 @@ ExportOptions.plist
 *.perspectivev3
 !default.perspectivev3
 xcuserdata/
+xcshareddata/
 
 ## Other
 *.moved-aside

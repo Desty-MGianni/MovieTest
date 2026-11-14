@@ -1,5 +1,5 @@
 //
-//  Consstants.swift
+//  Constants.swift
 //  MovieTest
 //
 //  Created by Gianni Mucci on 14/11/2026.
@@ -36,6 +36,21 @@ struct Constants {
     static let testTitleURL3 = "https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg"
 
     static let posterURLStart = "https://image.tmdb.org/t/p/w500"
+
+    // "to" -> label d'argument
+    // "inout" -> signifie que la fonction prend une variables,
+    // effecture des changement dedans, et renvoient la même variable
+    // (comme ref en C# ou * en C)
+    static func addPosterPath(to titles: inout [Title]) {
+        // Pour chaque titre, si on a une valeur, on modifie la
+        // valeur dans posterpath (on concatéte la constante +
+        // la valeur présente dans la liste)
+        for index in titles.indices {
+            if let path = titles[index].posterPath {
+                titles[index].posterPath = Constants.posterURLStart + path
+            }
+        }
+    }
 }
 
 // Fonction permettant d'appliquer un style sur un boutton
