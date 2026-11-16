@@ -14,13 +14,13 @@ struct ContentView: View {
                 HomeView()
             }
             Tab(Constants.upcomingString, systemImage: Constants.upcomingIconString) {
-                Text(Constants.upcomingString)
+                UpcomingView()
             }
             Tab(Constants.searchString, systemImage: Constants.searchIconString) {
-                Text(Constants.searchString)
+                SearchView()
             }
             Tab(Constants.downloadString, systemImage: Constants.downloadIconString) {
-                Text(Constants.downloadString)
+                DownloadView()
             }
         }
     }

@@ -9,8 +9,12 @@ import Foundation
 // Charge dynamiquement les clés API pour une question de sécurité.
 // Une instance sera crée par un source externe (.json)
 struct APIConfig: Decodable {
+
     let tmdbBaseURL: String
     let tmdbAPIKey: String
+    let youtubeBaseURL: String
+    let youtubeAPIKey: String
+    let youtubeSearchURL: String
 
     // Singleton pattern
     // Si on arrive pas à charger APIConfig, on renvois null

@@ -3,6 +3,7 @@
 
 APIConfig.json
 TmdbLogin.json
+buildServer.json
 
 ## Build generated
 build/

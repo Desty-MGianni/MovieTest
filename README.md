@@ -7,7 +7,7 @@ It is a feature-rich iOS application built from scratch using **SwiftUI**, **Swi
 This project was developed following the course _"SwiftUI Course for Beginners – Create an iOS App from Scratch"_ by Carlos (Blossom Build), published on freeCodeCamp.org.
 
 - [Link to the YouTube course](https://www.youtube.com/watch?v=-VC3hIEL7eQ).
-- [Link to the code Repo](https://github.com/BlossomBuild/BlossomMovie/tree/main)
+- [Link to the original code Repo](https://github.com/BlossomBuild/BlossomMovie/tree/main)
 
 ---
 

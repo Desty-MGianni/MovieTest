@@ -19,6 +19,7 @@ struct Constants {
     static let trendingTVString = "Trending TV"
     static let topRatedMovieString = "Top Rated Movies"
     static let topRatedTVString = "Top Rated TV"
+
     static let movieSearchString = "Movie Search"
     static let tvSearchString = "TV Search"
     static let moviePlaceHolderString = "Search for a Movie"
@@ -53,6 +54,15 @@ struct Constants {
     }
 }
 
+// Permet d'éviter les typos lors de la création
+// de chaque URL pour afficher les vidéos youtube
+enum YoutubeURLStrings: String {
+    case trailer = "trailer"
+    case queryShorten = "q"
+    case space = " "
+    case key = "key"
+}
+
 // Fonction permettant d'appliquer un style sur un boutton
 // Ici, pas besoin de return car on modifie les valeurs dans
 // les champs de Text
@@ -67,5 +77,15 @@ extension Text {
                 RoundedRectangle(cornerRadius: 20, style: .continuous)
                     .stroke(.buttonBorder, lineWidth: 5)
             }
+    }
+}
+
+extension Text {
+    func errorMessage() -> some View {
+        self.foregroundStyle(.red)
+            .padding()
+            .background(.ultraThinMaterial)
+            .clipShape(.rect(cornerRadius: 10))
+
     }
 }
