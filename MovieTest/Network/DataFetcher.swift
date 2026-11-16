@@ -128,7 +128,10 @@ struct DataFetcher {
         //
         // "as" est la même chose qu'en C#, avec ?
         // pour gérer les types optionnels
-        guard let response = urlResponse as? HTTPURLResponse, response.statusCode == 200 else {
+        //
+        // Modification effectuée par rapport au cours pour capturer
+        // quand on à excéder le quota des API.
+        guard let response = urlResponse as? HTTPURLResponse else {
             throw NetworkError.badURLResponse(
                 // NSerror -> NextStepError -> Classe venant d'Objective-C.
                 underlyingError: NSError(
@@ -137,6 +140,22 @@ struct DataFetcher {
                     code: (urlResponse as? HTTPURLResponse)?.statusCode ?? -1,
                     userInfo: [NSLocalizedDescriptionKey: "Invalid HTTP Response"]))
 
+        }
+        switch response.statusCode {
+        case 200:
+            break
+        case 429:
+            if response.url?.host?.contains("googleapis") == true {
+                throw NetworkError.quotaExceeded
+            } else {
+                throw NetworkError.rateLimited
+            }
+        default:
+            throw NetworkError.badURLResponse(
+                underlyingError: NSError(
+                    domain: "DataFetcher",
+                    code: response.statusCode,
+                    userInfo: [NSLocalizedDescriptionKey: "Invald HTTP Response"]))
         }
 
         // Ici, la réponse est correcte. On décode le json

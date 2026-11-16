@@ -2,7 +2,7 @@
 
 Movie Test is my first iOS application ever following
 
-It is a feature-rich iOS application built from scratch using **SwiftUI**, **SwiftData**, and **Xcode** (iOS 18+). The app enables users to browse trending and top-rated movies and TV shows, search titles dynamically, stream official YouTube trailers, and save titles locally for offline viewing.
+It is a feature-rich iOS application built from scratch using **SwiftUI**, **SwiftData**, **Xcode** (iOS 18+) and **neovim**. The app enables users to browse trending and top-rated movies and TV shows, search titles dynamically, stream official YouTube trailers, and save titles locally for offline viewing.
 
 This project was developed following the course _"SwiftUI Course for Beginners – Create an iOS App from Scratch"_ by Carlos (Blossom Build), published on freeCodeCamp.org.
 
@@ -13,11 +13,6 @@ This project was developed following the course _"SwiftUI Course for Beginners �
 
 ## Key Features
 
-- **Four-Tab Main Navigation**: Built using SwiftUI's native `TabView` featuring clean navigation across four primary sections:
-  - **Home**: Features a dynamic Hero Title poster selected randomly from trending movies, complete with screen-proportional sizing via `GeometryReader` and custom gradient overlays (`LinearGradient`). Displays four horizontal scrolling collections (`LazyHStack`) for Trending Movies, Trending TV Shows, Top Rated Movies, and Top Rated TV Shows.
-  - **Upcoming**: Displays a vertical list (`VerticalListView`) of upcoming movie releases fetched directly from TMDB.
-  - **Search**: Features a 3-column grid layout (`LazyVGrid`) with a custom toolbar toggle to switch between Movie Search and TV Show Search. Includes a `.searchable` search bar with asynchronous input debouncing (500ms delay using `Task.sleep`).
-  - **Download**: Offline storage interface listing saved titles powered by SwiftData, complete with empty-state indicators, swipe-to-delete support, unique title constraints, and automatic alphabetical sorting.
 - **Embedded YouTube Trailer Player**: Custom `WKWebView` integration via `UIViewRepresentable` (`YouTubePlayer`) that dynamically plays YouTube trailers fetched through the YouTube Data API v3.
 - **Detailed Title View**: A comprehensive detail screen (`TitleDetailView`) presenting title posters, names, plot overviews, trailer playback, and action buttons for downloading content.
 - **SwiftData Offline Storage**: Persistent offline data management utilizing `@Model`, `@Query`, `@Attribute(.unique)` to eliminate duplicate downloads, and `modelContext` operations for inserting and deleting entries.
@@ -88,7 +83,8 @@ MovieTest/
 │   ├── UpcomingView.swift          # Vertical list view for upcoming movies
 │   ├── SearchView.swift            # 3-column grid search view with movie/TV toggle & search bar
 │   ├── DownloadView.swift          # Local downloads list powered by SwiftData @Query
-│   └── TitleDetailView.swift       # Detail screen with YouTube trailer player & save action
+│   ├── TitleDetailView.swift       # Detail screen with YouTube trailer player & save action
+│   └── ContentView.swift           # Tab bar containing Home, Upcoming, Search and Downloads
 ├── Components/
 │   ├── HorizontalListView.swift    # Horizontal scrolling poster component
 │   ├── VerticalListView.swift      # Vertical poster and title row component
@@ -110,7 +106,7 @@ MovieTest/
 ### API Credentials Setup
 
 1. Open the Xcode project directory.
-2. Locate the `APIConfig.json` file inside the `Config/` directory.
+2. Create the `APIConfig.json` file inside the `Config/` directory.
 3. Configure your API base URLs and API keys inside the JSON bundle resource:
 
 ```json

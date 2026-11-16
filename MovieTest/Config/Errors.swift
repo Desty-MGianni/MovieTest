@@ -44,6 +44,8 @@ enum NetworkError: Error, LocalizedError {
     case badURLResponse(underlyingError: Error)
     case missingConfig
     case urlBuildFailed
+    case quotaExceeded  // Pour différencier youtube
+    case rateLimited    // et Tmdb
 
     var errorDescription: String? {
         switch self {
@@ -53,6 +55,10 @@ enum NetworkError: Error, LocalizedError {
             return "Missing API configuration."
         case .urlBuildFailed:
             return "Failed to build URL."
+        case .quotaExceeded:
+            return "The YouTube daily quota has been reached."
+        case .rateLimited:
+            return "The TMDB received too many requests."
         }
 
     }
